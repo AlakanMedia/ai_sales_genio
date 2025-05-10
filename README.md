@@ -24,5 +24,7 @@ Follow these steps to set up and run the project:
    python3 app/main.py
    ```
 
-   ## Image
-   ![image_challenge](https://github.com/AlakanMedia/ai_sales_genio/blob/main/assets/imgs/image.png)
+> **Note:** To end the conversation with the assistant you have to write the word `exit`.
+
+## Image
+![image_challenge](https://github.com/AlakanMedia/ai_sales_genio/blob/main/assets/imgs/image.png)
