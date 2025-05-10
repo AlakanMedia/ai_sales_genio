@@ -1,13 +1,14 @@
 # Code challenge
 This challenge is to create a Python application that demonstrates my ability to work with the OpenAI Wizards API and function calling. Developing an AI assistant for an e-commerce platform to help users interact with product information.
 
-## How to use (GNU/Linux)
+## How to use
 Follow these steps to set up and run the project:
 
 1. Create a Python virtual environment and activate the virtual environment
    ```bash
    python3 -m venv .venv
-   source .venv/bin/activate
+   source .venv/bin/activate # GNU/Linux
+   .venv\Scripts\activate # Windows
    ```
 2. Upgrade pip and install the dependencies
    ```bash
