@@ -1,5 +1,5 @@
 # Code challenge
-This challenge is to create a Python application that demonstrates my ability to work with the OpenAI Wizards API and function calling. Developing an AI assistant for an e-commerce platform to help users interact with product information.
+This challenge is to create a Python application that demonstrates my ability to work with the OpenAI Assistant API and function calling. Developing an AI assistant for an e-commerce platform to help users interact with product information.
 
 ## How to use
 Follow these steps to set up and run the project:
