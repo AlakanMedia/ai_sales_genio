@@ -1,11 +1,13 @@
 import json
 from mock_data import products
 
+
 def get_available_products() -> list:
     try:
         return [product["name"] for product in products]
     except Exception as e:
         return []
+
 
 def get_product_info(product_name: str) -> dict | str:
     for product in products:
@@ -17,6 +19,7 @@ def get_product_info(product_name: str) -> dict | str:
 
     return f"Product with name: {product_name} not found!"
 
+
 def check_stock(product_name: str) -> int | str:
     for product in products:
         if product["name"] == product_name:
@@ -24,7 +27,12 @@ def check_stock(product_name: str) -> int | str:
 
     return f"Product with name: {product_name} not found!"
 
+
 def function_controller(id: str, name: str, parameters: str) -> str:
+    """
+    This function is in charge of calling the corresponding function
+    chosen by the assistant and returning its corresponding response.
+    """
     response = {
         "tool_call_id": id,
         "output": f"Function with name: '{name}' not found!",

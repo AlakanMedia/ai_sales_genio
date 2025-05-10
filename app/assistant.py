@@ -7,12 +7,17 @@ load_dotenv()
 
 client = OpenAI(api_key=os.environ.get("API_KEY", ""))
 
+
 def create_assistant(
     instructions: str,
     name: str,
     model: str,
     tools: list | None = None
 ) -> dict:
+    """
+    This function is responsible for creating the assistant
+    according to the parameters provided.
+    """
     try:
         assistant = client.beta.assistants.create(
             instructions=instructions,
@@ -26,7 +31,12 @@ def create_assistant(
         print(f"ERROR (create_assistant): {e}")
         return {"status": "fail", "assistant_info": None}
 
+
 def create_thread() -> dict:
+    """
+    This function is responsible for creating the conversation thread in
+    which the user and assistant will be talking.
+    """
     try:
         thread = client.beta.threads.create()
 
@@ -35,7 +45,12 @@ def create_thread() -> dict:
         print(f"ERROR (create_thread): {e}")
         return {"status": "fail", "thread_info": None}
 
+
 def create_query_message(thread_id: str, role: str, content: str) -> dict:
+    """
+    The function is responsible for adding the
+    user's message to the conversation thread.
+    """
     try:
         message = client.beta.threads.messages.create(
             thread_id=thread_id,
@@ -48,12 +63,17 @@ def create_query_message(thread_id: str, role: str, content: str) -> dict:
         print(f"ERROR (create_query_message): {e}")
         return {"status": "fail", "message_info": None}
 
+
 def get_response(
     assistant_id: str,
     thread_id: str,
     run_id: str = "",
     tool_outputs: list | None = None
 ) -> dict:
+    """
+    The function is responsible for delivering the assistant's response
+    depending on whether it is a user message or a tool call.
+    """
     try:
         if run_id and tool_outputs:
             run = client.beta.threads.runs.submit_tool_outputs_and_poll(
@@ -67,6 +87,7 @@ def get_response(
                 assistant_id=assistant_id,
             )
 
+        # Wait until the message is processed
         while run.status == "queued" or run.status == "in_progress":
             run = client.beta.threads.runs.retrieve(
                 thread_id=thread_id,

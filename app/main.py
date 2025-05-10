@@ -3,7 +3,12 @@ from business_logic import function_controller
 from assistant import create_assistant, create_thread, create_query_message, get_response
 from utils import game_store_instruction, get_available_products_func, get_product_info_func, check_stock_func
 
+
 def start_conversation(assistant_id: str, thread_id: str) -> None:
+    """
+    Function that handles user interactions, 
+    tool calls and assistant responses in a loop.
+    """
     function_interaction = False
 
     while True:
@@ -45,6 +50,11 @@ def start_conversation(assistant_id: str, thread_id: str) -> None:
 
 
 def main():
+    """
+    Main function that is responsible for creating the assistant and
+    creating the thread of the conversation. If everything goes well, 
+    the conversation loop is started.
+    """
     response = create_assistant(
         instructions=game_store_instruction,
         model="gpt-4o",
@@ -67,6 +77,7 @@ def main():
     thread_id = thread["id"]
 
     start_conversation(assistant_id, thread_id)
+
 
 if __name__ == "__main__":
     main()

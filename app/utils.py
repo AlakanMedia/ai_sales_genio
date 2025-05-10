@@ -1,5 +1,6 @@
 game_store_instruction = "You are a helpful and knowledgeable virtual assistant for a video game console store. You provide detailed, accurate, and friendly information about products available in the store."
 
+
 get_available_products_func = {
     "type": "function",
     "function": {
@@ -12,6 +13,7 @@ get_available_products_func = {
         }
     }
 }
+
 
 get_product_info_func = {
     "type": "function",
@@ -30,6 +32,7 @@ get_product_info_func = {
         }
     }
 }
+
 
 check_stock_func = {
     "type": "function",
