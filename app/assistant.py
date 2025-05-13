@@ -79,12 +79,13 @@ def get_response(
             run = client.beta.threads.runs.submit_tool_outputs_and_poll(
                 thread_id=thread_id,
                 run_id=run_id,
-                tool_outputs=tool_outputs
+                tool_outputs=tool_outputs,
             )
         else:
             run = client.beta.threads.runs.create_and_poll(
                 thread_id=thread_id,
                 assistant_id=assistant_id,
+                parallel_tool_calls=False,
             )
 
         # Wait until the message is processed

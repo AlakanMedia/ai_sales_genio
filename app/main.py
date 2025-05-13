@@ -1,4 +1,3 @@
-import json
 from business_logic import function_controller
 from assistant import create_assistant, create_thread, create_query_message, get_response
 from utils import game_store_instruction, get_available_products_func, get_product_info_func, check_stock_func
